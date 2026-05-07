@@ -1,26 +1,30 @@
-.#{$select-ns}-control {
-	border: $select-border;
-	padding: $select-padding-y $select-padding-x;
+@use "tom-select";
+
+@use 'sass:color';
+
+.#{tom-select.$select-ns}-control {
+	border: tom-select.$select-border;
+	padding: tom-select.$select-padding-y tom-select.$select-padding-x;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
 	box-sizing: border-box;
-	box-shadow: $select-shadow-input;
-	border-radius: $select-border-radius;
+	box-shadow: tom-select.$select-shadow-input;
+	border-radius: tom-select.$select-border-radius;
 	display: flex;
 	flex-wrap: wrap;
 
-	.#{$select-ns}-wrapper.multi.has-items & {
-		$padding-x: $select-padding-x;
-		$padding-top: calc( #{$select-padding-y} - #{$select-padding-item-y} - #{$select-width-item-border});
-		$padding-bottom: calc( #{$select-padding-y} - #{$select-padding-item-y} - #{$select-margin-item-y} - #{$select-width-item-border});
+	.#{tom-select.$select-ns}-wrapper.multi.has-items & {
+		$padding-x: tom-select.$select-padding-x;
+		$padding-top: calc( #{tom-select.$select-padding-y} - #{tom-select.$select-padding-item-y} - #{tom-select.$select-width-item-border});
+		$padding-bottom: calc( #{tom-select.$select-padding-y} - #{tom-select.$select-padding-item-y} - #{tom-select.$select-margin-item-y} - #{tom-select.$select-width-item-border});
 
 		padding: $padding-top $padding-x $padding-bottom;
 	}
 
 	.full & {
-		background-color: $select-color-input-full;
+		background-color: tom-select.$select-color-input-full;
 	}
 
 	.disabled &,
@@ -29,7 +33,7 @@
 	}
 
 	.focus & {
-		box-shadow: $select-shadow-input-focus;
+		box-shadow: tom-select.$select-shadow-input-focus;
 	}
 
 	> * {
@@ -37,27 +41,27 @@
 		display: inline-block;
 	}
 
-	.#{$select-ns}-wrapper.multi & > div {
+	.#{tom-select.$select-ns}-wrapper.multi & > div {
 		cursor: pointer;
-		margin: 0 $select-margin-item-x $select-margin-item-y 0;
-		padding: $select-padding-item-y $select-padding-item-x;
-		background: $select-color-item;
-		color: $select-color-item-text;
-		border: $select-width-item-border solid $select-color-item-border;
+		margin: 0 tom-select.$select-margin-item-x tom-select.$select-margin-item-y 0;
+		padding: tom-select.$select-padding-item-y tom-select.$select-padding-item-x;
+		background: tom-select.$select-color-item;
+		color: tom-select.$select-color-item-text;
+		border: tom-select.$select-width-item-border solid tom-select.$select-color-item-border;
 		overflow: auto;
 
 		&.active {
-			background: $select-color-item-active;
-			color: $select-color-item-active-text;
-			border: $select-width-item-border solid $select-color-item-active-border;
+			background: tom-select.$select-color-item-active;
+			color: tom-select.$select-color-item-active-text;
+			border: tom-select.$select-width-item-border solid tom-select.$select-color-item-active-border;
 		}
 	}
 
-	.#{$select-ns}-wrapper.multi.disabled & > div {
+	.#{tom-select.$select-ns}-wrapper.multi.disabled & > div {
 		&, &.active {
-			color: lighten(desaturate($select-color-item-text, 100%), $select-lighten-disabled-item-text);
-			background: lighten(desaturate($select-color-item, 100%), $select-lighten-disabled-item);
-			border: $select-width-item-border solid lighten(desaturate($select-color-item-border, 100%), $select-lighten-disabled-item-border);
+			color: color.adjust(color.scale(tom-select.$select-color-item-text, $saturation: -100%), $lightness: tom-select.$select-lighten-disabled-item-text);
+			background: color.adjust(color.scale(tom-select.$select-color-item, $saturation: -100%), $lightness: tom-select.$select-lighten-disabled-item);
+			border: tom-select.$select-width-item-border solid color.adjust(color.scale(tom-select.$select-color-item-border, $saturation: -100%), $lightness: tom-select.$select-lighten-disabled-item-border);
 		}
 	}
 
@@ -85,23 +89,23 @@
 	}
 
 	.has-items & > input{
-		margin: $select-caret-margin !important;
+		margin: tom-select.$select-caret-margin !important;
 	}
 
 	&.rtl {
 		text-align: right;
-		&.single .#{$select-ns}-control:after {
-			left: $select-arrow-offset;
+		&.single .#{tom-select.$select-ns}-control:after {
+			left: tom-select.$select-arrow-offset;
 			right: auto;
 		}
-		.#{$select-ns}-control > input {
-			margin: $select-caret-margin-rtl !important;
+		.#{tom-select.$select-ns}-control > input {
+			margin: tom-select.$select-caret-margin-rtl !important;
 		}
 	}
 
 	.disabled & {
-		opacity: $select-opacity-disabled;
-		background-color: $select-color-disabled;
+		opacity: tom-select.$select-opacity-disabled;
+		background-color: tom-select.$select-color-disabled;
 	}
 
 	// hide input, while retaining its focus, and maintain layout so users can still click on the space to bring the display back

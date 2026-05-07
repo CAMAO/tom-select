@@ -35,7 +35,7 @@ $select-color-dropdown-border:					$select-color-border !default;
 $select-color-dropdown-border-top:				#f0f0f0 !default;
 $select-color-dropdown-item-active:				#f5fafd !default;
 $select-color-dropdown-item-active-text:		#495c68 !default;
-$select-color-dropdown-item-create-text:		rgba(red($select-color-text), green($select-color-text), blue($select-color-text), 50%) !default;
+$select-color-dropdown-item-create-text:		rgba(color.red($select-color-text), color.green($select-color-text), color.blue($select-color-text), 50%) !default;
 $select-color-dropdown-item-create-active-text:	$select-color-dropdown-item-active-text !default;
 $select-color-optgroup:							$select-color-dropdown !default;
 $select-color-optgroup-text:					$select-color-text !default;
@@ -68,17 +68,19 @@ $select-spinner-size:							30px !default;
 $select-spinner-border-size:					5px !default;
 $select-spinner-border-color:					$select-color-border !default;
 
-@import 'items';
-@import 'dropdown';
+@use "sass:color";
+@use "sass:math";
+@use 'items';
+@use 'dropdown';
 
-@import "../plugins/drag_drop/plugin.scss";
-@import "../plugins/checkbox_options/plugin.scss";
-@import "../plugins/clear_button/plugin.scss";
-@import "../plugins/dropdown_header/plugin.scss";
-@import "../plugins/dropdown_input/plugin.scss";
-@import "../plugins/input_autogrow/plugin.scss";
-@import "../plugins/optgroup_columns/plugin.scss";
-@import "../plugins/remove_button/plugin.scss";
+@use "../plugins/drag_drop/plugin.scss";
+@use "../plugins/checkbox_options/plugin.scss" as plugin2;
+@use "../plugins/clear_button/plugin.scss" as plugin3;
+@use "../plugins/dropdown_header/plugin.scss" as plugin4;
+@use "../plugins/dropdown_input/plugin.scss" as plugin5;
+@use "../plugins/input_autogrow/plugin.scss" as plugin6;
+@use "../plugins/optgroup_columns/plugin.scss" as plugin7;
+@use "../plugins/remove_button/plugin.scss" as plugin8;
 
 :root {
 	--ts-pr-clear-button: 0px;
@@ -118,7 +120,7 @@ $select-spinner-border-color:					$select-color-border !default;
 				display: block;
 				position: absolute;
 				top: 50%;
-				margin-top: round(-0.5 * $select-arrow-size);
+				margin-top: math.round(-0.5 * $select-arrow-size);
 				width: 0;
 				height: 0;
 				border-style: solid;

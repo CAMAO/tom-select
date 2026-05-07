@@ -1,23 +1,25 @@
-.#{$select-ns}-dropdown {
+@use "tom-select";
+
+.#{tom-select.$select-ns}-dropdown {
 	position: absolute;
 	top: 100%;
 	left: 0;
 	width: 100%;
 	z-index: 10;
-	border: $select-dropdown-border;
-	background: $select-color-dropdown;
+	border: tom-select.$select-dropdown-border;
+	background: tom-select.$select-color-dropdown;
 	margin: 0.25rem 0 0;
 	border-top: 0 none;
 	box-sizing: border-box;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 10%);
-	border-radius: 0 0 $select-border-radius $select-border-radius;
+	border-radius: 0 0 tom-select.$select-border-radius tom-select.$select-border-radius;
 
 	[data-selectable] {
 		cursor: pointer;
 		overflow: hidden;
 
 		.highlight {
-			background: $select-color-highlight;
+			background: tom-select.$select-color-highlight;
 			border-radius: 1px;
 		}
 	}
@@ -26,7 +28,7 @@
 	.optgroup-header,
 	.no-results,
 	.create {
-		padding: $select-padding-dropdown-item-y $select-padding-dropdown-item-x;
+		padding: tom-select.$select-padding-dropdown-item-y tom-select.$select-padding-dropdown-item-x;
 	}
 
 	.option, [data-disabled], [data-disabled] [data-selectable].option {
@@ -44,40 +46,40 @@
 	}
 
 	.optgroup-header {
-		color: $select-color-optgroup-text;
-		background: $select-color-optgroup;
+		color: tom-select.$select-color-optgroup-text;
+		background: tom-select.$select-color-optgroup;
 		cursor: default;
 	}
 
 	.active {
-		background-color: $select-color-dropdown-item-active;
-		color: $select-color-dropdown-item-active-text;
+		background-color: tom-select.$select-color-dropdown-item-active;
+		color: tom-select.$select-color-dropdown-item-active-text;
 
 		&.create {
-			color: $select-color-dropdown-item-create-active-text;
+			color: tom-select.$select-color-dropdown-item-create-active-text;
 		}
 	}
 
 	.create {
-		color: $select-color-dropdown-item-create-text;
+		color: tom-select.$select-color-dropdown-item-create-text;
 	}
 
 	.spinner{
 		display: inline-block;
-		width: $select-spinner-size;
-		height: $select-spinner-size;
-		margin: $select-padding-dropdown-item-y $select-padding-dropdown-item-x;
+		width: tom-select.$select-spinner-size;
+		height: tom-select.$select-spinner-size;
+		margin: tom-select.$select-padding-dropdown-item-y tom-select.$select-padding-dropdown-item-x;
 
 
 		&::after {
 			content: " ";
 			display: block;
-			width: $select-spinner-size * .8;
-			height: $select-spinner-size * .8;
-			margin: $select-spinner-size * .1;
+			width: tom-select.$select-spinner-size * .8;
+			height: tom-select.$select-spinner-size * .8;
+			margin: tom-select.$select-spinner-size * .1;
 			border-radius: 50%;
-			border: $select-spinner-border-size solid $select-spinner-border-color;
-			border-color: $select-spinner-border-color transparent $select-spinner-border-color transparent;
+			border: tom-select.$select-spinner-border-size solid tom-select.$select-spinner-border-color;
+			border-color: tom-select.$select-spinner-border-color transparent tom-select.$select-spinner-border-color transparent;
 			animation: lds-dual-ring 1.2s linear infinite;
 		}
 		@keyframes lds-dual-ring {
@@ -92,8 +94,8 @@
 	}
 }
 
-.#{$select-ns}-dropdown-content {
+.#{tom-select.$select-ns}-dropdown-content {
 	overflow: hidden auto;
-	max-height: $select-max-height-dropdown;
+	max-height: tom-select.$select-max-height-dropdown;
 	scroll-behavior: smooth;
 }
