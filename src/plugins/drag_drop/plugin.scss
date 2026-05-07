@@ -1,4 +1,6 @@
-.#{$select-ns}-wrapper.plugin-drag_drop {
+@use "../../scss/tom-select";
+
+.#{tom-select.$select-ns}-wrapper.plugin-drag_drop {
 	.ts-dragging{
 		color:transparent !important;
 	}

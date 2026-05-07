@@ -1,4 +1,6 @@
-.#{$select-ns}-dropdown.plugin-optgroup_columns {
+@use "../../scss/tom-select";
+
+.#{tom-select.$select-ns}-dropdown.plugin-optgroup_columns {
 	.ts-dropdown-content{
 		display: flex;
 	}

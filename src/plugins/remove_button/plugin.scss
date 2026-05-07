@@ -1,4 +1,7 @@
-.#{$select-ns}-wrapper.plugin-remove_button{
+@use "sass:color";
+@use "../../scss/tom-select";
+
+.#{tom-select.$select-ns}-wrapper.plugin-remove_button{
 	.item {
 		display: inline-flex;
 		align-items: center;
@@ -9,7 +12,7 @@
 		text-decoration: none;
 		vertical-align: middle;
 		display: inline-block;
-		padding: 0 $select-padding-item-x;
+		padding: 0 tom-select.$select-padding-item-x;
 		border-radius: 0 2px 2px 0;
 		box-sizing: border-box;
 	}
@@ -31,40 +34,40 @@
 	}
 }
 
-.#{$select-ns}-wrapper.plugin-remove_button:not(.rtl){
+.#{tom-select.$select-ns}-wrapper.plugin-remove_button:not(.rtl){
 	.item {
 		padding-right:	0 !important;
 	}
 
 	.item .remove {
-		border-left: 1px solid $select-color-item-border;
-		margin-left: $select-padding-item-x;
+		border-left: 1px solid tom-select.$select-color-item-border;
+		margin-left: tom-select.$select-padding-item-x;
 	}
 
 	.item.active .remove {
-		border-left-color: $select-color-item-active-border;
+		border-left-color: tom-select.$select-color-item-active-border;
 	}
 
 	&.disabled .item .remove {
-		border-left-color: lighten(desaturate($select-color-item-border, 100%), $select-lighten-disabled-item-border);
+		border-left-color: color.adjust(color.adjust(tom-select.$select-color-item-border, $saturation: -100%), $lightness: tom-select.$select-lighten-disabled-item-border);
 	}
 }
 
-.#{$select-ns}-wrapper.plugin-remove_button.rtl {
+.#{tom-select.$select-ns}-wrapper.plugin-remove_button.rtl {
 	.item {
 		padding-left:	0 !important;
 	}
 	
 	.item .remove {
-		border-right: 1px solid $select-color-item-border;
-		margin-right: $select-padding-item-x;
+		border-right: 1px solid tom-select.$select-color-item-border;
+		margin-right: tom-select.$select-padding-item-x;
 	}
 
 	.item.active .remove {
-		border-right-color: $select-color-item-active-border;
+		border-right-color: tom-select.$select-color-item-active-border;
 	}
 
 	&.disabled .item .remove {
-		border-right-color: lighten(desaturate($select-color-item-border, 100%), $select-lighten-disabled-item-border);
+		border-right-color: color.adjust(color.adjust(tom-select.$select-color-item-border, $saturation: -100%), $lightness: tom-select.$select-lighten-disabled-item-border);
 	}
 }

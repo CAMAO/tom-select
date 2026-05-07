@@ -1,10 +1,12 @@
-.#{$select-ns}-wrapper.plugin-input_autogrow{
+@use "../../scss/tom-select";
 
-	&.has-items .#{$select-ns}-control > input {
+.#{tom-select.$select-ns}-wrapper.plugin-input_autogrow{
+
+	&.has-items .#{tom-select.$select-ns}-control > input {
 		min-width: 0;
 	}
 	
-	&.has-items.focus .#{$select-ns}-control > input {
+	&.has-items.focus .#{tom-select.$select-ns}-control > input {
 		flex: none;
 		min-width: 4px;
 
